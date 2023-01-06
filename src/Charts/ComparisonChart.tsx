@@ -3,6 +3,7 @@ import axios from 'axios';
 import env from 'react-dotenv';
 
 import { PlayerStats, Legend } from '../types/player.interface';
+import { weaponMap } from '../util/weaponMap';
 
 const ComparisonChart = () => {
 
@@ -23,8 +24,14 @@ const ComparisonChart = () => {
     <div>
       { player ? 
         player.legends.map((legend: Legend) => {
-          return <p>{legend.legend_name_key}</p>
-        }) :
+          const name: string = legend.legend_name_key;
+          return (
+            <div key={legend.legend_id}>
+              <div>{name}</div>
+              <div>{weaponMap[name][0]} Damage: {legend.damageweaponone}</div>
+              <div>{weaponMap[name][1]} Damage: {legend.damageweapontwo}</div>
+            </div>
+          )}) :
         'No player selected'
       }
     </div>
