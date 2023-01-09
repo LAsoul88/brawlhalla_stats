@@ -21,6 +21,7 @@ const ComparisonChart = () => {
     if (!player) getRank(brawlhallaId);
   }, [player])
 
+  console.log(player)
   return (
     <div>
       { player ? <LegendsChart legends={player.legends} /> : <></>}
