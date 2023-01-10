@@ -1,13 +1,11 @@
-import './App.css';
-
-import ComparisonChart from './Charts/ComparisonChart';
+import KOFallRatioChart from './Charts/KOFallRatioChart';
 
 const App = () => {
 
   return (
     <div className="App">
       Hello There
-      <ComparisonChart />
+      <KOFallRatioChart />
     </div>
   )
 }
