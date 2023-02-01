@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import Chart from 'chart.js/auto';
+import { PlayerContext } from '../Context/PlayerContext';
 import type { ChartConfiguration } from 'chart.js';
 
 import './BaseChart.scss';
@@ -18,6 +19,8 @@ interface ChartProps {
 // data - number[] [1, 2, 3]
 
 const BaseChart = ({ type, labels, data }: ChartProps) => {
+
+  const player = useContext(PlayerContext);
 
   useEffect(() => {
     const ctx = document.getElementById('statsChart') as HTMLCanvasElement;
