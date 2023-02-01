@@ -7,7 +7,7 @@ import Root from './routes/Root';
 import Home from './routes/Home';
 import Solo from './routes/Solo';
 import Doubles from './routes/Doubles'; 
-import Personal from './routes/Personal';
+import Player from './routes/Player';
 
 import './index.css';
 
@@ -22,16 +22,18 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: '/solo',
-        element: <Solo />,
-      },
-      {
-        path: '/doubles',
-        element: <Doubles />
-      },
-      {
-        path: '/personal',
-        element: <Personal />
+        path: '/player/:id',
+        element: <Player />,
+        children: [
+          {
+            path: '/player/:id/solo',
+            element: <Solo />,
+          },
+          {
+            path: '/player/:id/doubles',
+            element: <Doubles />
+          },
+        ]
       }
     ]
   },
