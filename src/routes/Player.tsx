@@ -1,6 +1,6 @@
 import KOFallRatioChart from '../Charts/KOFallRatioChart';
 
-const Personal = () => {
+const Player = () => {
   return (
     <>
       <KOFallRatioChart />
@@ -8,4 +8,4 @@ const Personal = () => {
   )
 }
 
-export default Personal;
+export default Player;
