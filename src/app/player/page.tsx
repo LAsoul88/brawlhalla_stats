@@ -1,11 +1,6 @@
 'use client'
 import React, {useState, useEffect} from 'react'
 
-interface Legend {
-  legend_id: number;
-  legend_name_key: string;
-}
-
 const Player = () => {
 
   const [legends, setLegends] = useState<Legend[]>([])
