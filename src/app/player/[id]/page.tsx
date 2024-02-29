@@ -1,4 +1,6 @@
-const Stats = () => {
+
+
+const Stats = ({ params }: IdParams) => {
 return (
   <></>
 )
