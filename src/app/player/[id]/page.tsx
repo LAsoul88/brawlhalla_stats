@@ -9,10 +9,17 @@ const Stats = ({ params }: IdParams) => {
       method: 'GET',
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => {
+      setPlayer(data)
+      console.log(data)
+    })
   }, [])
 return (
-  <></>
+  <div className='flex h-10'>
+    <p className='text-white'>
+      {player.name}
+    </p>
+  </div>
 )
 }
 
