@@ -18,13 +18,13 @@ const Stats = ({ params }: IdParams) => {
       console.log(data)
     })
   }, [])
-return (
-  <div className='flex h-10'>
-    <p className='text-white'>
-      {player.name}
-    </p>
-  </div>
-)
+  return (
+    <div className='flex h-10'>
+      <p className='text-white'>
+        {player.name}
+      </p>
+    </div>
+  )
 }
 
 export default Stats
