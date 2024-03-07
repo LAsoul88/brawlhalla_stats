@@ -1,4 +1,4 @@
-export const LegendCard = (legend: Legend) => {
+export const LegendCard = ({legend}: LegendCardProps) => {
   console.log(legend.legend_name_key)
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
