@@ -2,6 +2,9 @@ export {}
 
 declare global {
   type IdParams = { params: { id: string }}
+  type LegendCardProps = { 
+    legend: Legend
+  }
   type Legend = {
     legend_id: number,
     legend_name_key: string
