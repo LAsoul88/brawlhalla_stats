@@ -18,7 +18,7 @@ const Legends = () => {
   return (
     <div className='text-white'>
       {legends.length > 0 ? legends.map(legend => {
-        return <LegendCard legend={legend} />
+        return <LegendCard legend={legend} key={legend.legend_id} />
       }) : ''}
     </div>
   )
