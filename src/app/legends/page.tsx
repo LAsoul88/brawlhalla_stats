@@ -1,6 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react'
 
+import { LegendCard } from '@/app/(components)/LegendCard'
+
 const Legends = () => {
   const [legends, setLegends] = useState<Legend[]>([])
   const url: string = process.env.NEXT_PUBLIC_API || ''
@@ -16,7 +18,7 @@ const Legends = () => {
   return (
     <div className='text-white'>
       {legends.length > 0 ? legends.map(legend => {
-        return <p key={legend.legend_id}>{legend.legend_name_key}</p>
+        return <LegendCard legend={legend} />
       }) : ''}
     </div>
   )
