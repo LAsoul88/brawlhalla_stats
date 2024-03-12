@@ -1,8 +1,7 @@
 export const LegendCard = ({legend}: LegendCardProps) => {
-  console.log(legend.legend_name_key)
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      <img className="w-full" src="" alt="Sunset in the mountains" />
+      <img className="w-full" src="" alt={legend.bio_name} />
       <div className ="px-6 py-4">
         <div className="font-bold text-xl mb-2">{legend.bio_name}</div>
         <p className="text-gray-700 text-base">
