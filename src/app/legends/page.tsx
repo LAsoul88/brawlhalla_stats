@@ -16,7 +16,7 @@ const Legends = () => {
   useEffect(() => {
     fetch(url)
     .then(res => res.json())
-    .then((data: any) => {
+    .then((data: Legend[]) => {
       data.sort((a: Legend, b: Legend) => {
         return a.legend_name_key.toUpperCase() < b.legend_name_key.toUpperCase() ? -1 : a.legend_name_key.toUpperCase() > b.legend_name_key.toUpperCase() ? 1 : 0
       })
