@@ -4,14 +4,18 @@ import { useState, useEffect } from 'react'
 const Stats = ({ params }: IdParams) => {
   const [player, setPlayer] = useState<Player>({} as Player)
   const url: string = process.env.NEXT_PUBLIC_API || ''
+  
   useEffect(() => {
     fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: params.id,
-    })
+      body: JSON.stringify({
+        player_id: params.id,
+        endpoint: 'legends'
+      },
+    )})
     .then(res => res.json())
     .then(data => {
       setPlayer(data)

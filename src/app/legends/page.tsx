@@ -14,7 +14,16 @@ const Legends = () => {
   const url: string = process.env.NEXT_PUBLIC_API || ''
 
   useEffect(() => {
-    fetch(url)
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        player_id: null,
+        endpoint: 'legend'
+      })
+    })
     .then(res => res.json())
     .then((data: Legend[]) => {
       data.sort((a: Legend, b: Legend) => {
