@@ -44,9 +44,6 @@ declare global {
   type Player = {
     name: string
     brawlhalla_id: number
-    games: number
-    wins: number
-    legends: Legend[]
   }
   type Doubles = {
     brawlhalla_id_one: number
@@ -67,6 +64,9 @@ declare global {
     region: string
     global_rank: number
     region_rank: number
+    games: number
+    wins: number
+    legends: LegendRanked[]
     '2v2'?: Doubles[]
   }
   interface PlayerGeneral extends Player {
@@ -83,6 +83,9 @@ declare global {
     kospikeball: number
     kosidekick: number
     kosnowball: number
+    games: number
+    wins: number
+    legends: LegendGeneral[]
     clan?: {
       clan_name: string
       clan_id: number
