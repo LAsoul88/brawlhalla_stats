@@ -26,10 +26,7 @@ const Legends = () => {
     })
     .then(res => res.json())
     .then((data: Legend[]) => {
-      data.sort((a: Legend, b: Legend) => {
-        return a.legend_name_key.toUpperCase() < b.legend_name_key.toUpperCase() ? -1 : a.legend_name_key.toUpperCase() > b.legend_name_key.toUpperCase() ? 1 : 0
-      })
-      setLegends(data)
+      setLegends(data.sort(sortLegends))
       console.log(data)
     })
   }, [])
