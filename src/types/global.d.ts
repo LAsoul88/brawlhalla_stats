@@ -6,9 +6,9 @@ declare global {
     legend: Legend
   }
   type PlayerCardProps = {
-    player: Player
-    ranked: PlayerRanked
-    general: PlayerGeneral
+    player?: Player
+    ranked?: PlayerRanked
+    general?: PlayerGeneral
   }
   type Legend = {
     legend_id: number,
