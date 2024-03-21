@@ -5,6 +5,11 @@ declare global {
   type LegendCardProps = { 
     legend: Legend
   }
+  type PlayerCardProps = {
+    player: Player
+    ranked: PlayerRanked
+    general: PlayerGeneral
+  }
   type Legend = {
     legend_id: number,
     legend_name_key: string

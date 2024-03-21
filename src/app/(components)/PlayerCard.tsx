@@ -1,34 +1,9 @@
-'use client'
-import { useState, useEffect } from 'react'
 
-const Stats = ({ params }: IdParams) => {
-  const [player, setPlayer] = useState<Player>()
-  const [stats, setStats] = useState<PlayerGeneral>()
-  const [ranked, setRanked] = useState<PlayerRanked>()
-  const url: string = process.env.NEXT_PUBLIC_API || ''
 
-  useEffect(() => {
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        player_id: params.id,
-        endpoint: 'stats'
-      },
-    )})
-    .then(res => res.json())
-    .then(data => {
-      setPlayer(data['player'])
-      setStats(data['stats'])
-      setRanked(data['ranked'])
-      console.log(data['ranked'])
-    })
-  }, [])
+const PlayerCard = ({player, ranked, general}: PlayerCardProps) => {
   return (
     <>
-      {player ? (
+      { player ? (
         <div>
           <h2 className=''>{player.name}'s Stats</h2>
           <div className="border max-w-sm rounded overflow-hidden shadow-lg">
@@ -56,5 +31,3 @@ const Stats = ({ params }: IdParams) => {
     </>
   )
 }
-
-export default Stats
