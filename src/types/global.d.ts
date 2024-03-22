@@ -98,4 +98,15 @@ declare global {
       personal_xp: number
     }
   }
+  interface Leader {
+    rank: string
+    name: string
+    brawlhalla_id: number
+    rating: number
+    tier: string
+    games: number
+    wins: number
+    region: string
+    peak_rating: number
+  }
 }

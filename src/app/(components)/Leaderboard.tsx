@@ -1,8 +1,27 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Leaderboard = () => {
-  const [board, setBoard] = useState()
+  const [board, setBoard] = useState<Leader[]>([])
+  const url: string = process.env.NEXT_PUBLIC_API || ''
+
+  useEffect(() => {
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        player_id: null,
+        endpoint: 'leaderboard'
+      },
+    )})
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setBoard(data)
+    })
+  }, [])
   return (
     <>
       <div className="relative overflow-x-auto">
@@ -10,20 +29,48 @@ const Leaderboard = () => {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                  Product name
+                Player
               </th>
               <th scope="col" className="px-6 py-3">
-                  Color
+                Region
               </th>
               <th scope="col" className="px-6 py-3">
-                  Category
+                Rank
               </th>
               <th scope="col" className="px-6 py-3">
-                  Price
+                Games
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Wins
               </th>
             </tr>
           </thead>
           <tbody>
+            { board.length > 0 ? (board.map(leader => {
+                return (
+                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        Apple MacBook Pro 17"
+                    </th>
+                    <td className="px-6 py-4">
+                        Silver
+                    </td>
+                    <td className="px-6 py-4">
+                        Laptop
+                    </td>
+                    <td className="px-6 py-4">
+                        $2999
+                    </td>
+                    <td className="px-6 py-4">
+                        $2999
+                    </td>
+                  </tr>
+                )
+              })) : (
+                ''
+              )
+
+            }
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
               <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   Apple MacBook Pro 17"
@@ -36,6 +83,9 @@ const Leaderboard = () => {
               </td>
               <td className="px-6 py-4">
                   $2999
+              </td>
+              <td className="px-6 py-4">
+                $2999
               </td>
             </tr>
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -51,6 +101,9 @@ const Leaderboard = () => {
               <td className="px-6 py-4">
                   $1999
               </td>
+              <td className="px-6 py-4">
+                $2999
+              </td>
             </tr>
             <tr className="bg-white dark:bg-gray-800">
               <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -64,6 +117,9 @@ const Leaderboard = () => {
               </td>
               <td className="px-6 py-4">
                   $99
+              </td>
+              <td className="px-6 py-4">
+                $2999
               </td>
             </tr>
           </tbody>
