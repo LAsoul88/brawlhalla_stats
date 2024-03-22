@@ -1,11 +1,13 @@
 'use client'
 import { useRouter } from 'next/navigation'
 
+import Leaderboard from '@/app/(components)/Leaderboard'
+
 const Home = () => {
   const router = useRouter()
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
+      <section>
         Check out all available Legends and their stats! <br/>
         <button 
           onClick={() => router.push('/legends')}
@@ -13,7 +15,10 @@ const Home = () => {
         >
           Legends
         </button>
-      </div>
+      </section>
+      <section>
+        <Leaderboard />
+      </section>
     </main>
   );
 }
