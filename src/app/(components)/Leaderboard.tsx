@@ -2,6 +2,12 @@
 import { useState, useEffect } from 'react'
 
 const Leaderboard = () => {
+  const [proxyParams, setProxyParams] = useState<ProxyCall>({
+    endpoint: 'rankings',
+    bracket: '1v1',
+    region: 'all',
+    page: '1'
+  })
   const [board, setBoard] = useState<Leader[]>([])
   const url: string = process.env.NEXT_PUBLIC_API || ''
 
@@ -11,11 +17,8 @@ const Leaderboard = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        player_id: null,
-        endpoint: 'leaderboard'
-      },
-    )})
+      body: JSON.stringify(proxyParams)
+    })
     .then(res => res.json())
     .then(data => {
       console.log(data)
