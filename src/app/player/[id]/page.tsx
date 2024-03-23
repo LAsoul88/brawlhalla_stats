@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react'
 import PlayerCard from '@/app/(components)/PlayerCard'
 
 const Stats = ({ params }: IdParams) => {
+  const [proxyParams, setProxyParams] = useState<ProxyCall>({
+    endpoint: 'player',
+    player_id: params.id
+  })
   const [player, setPlayer] = useState<Player>()
   const [stats, setStats] = useState<PlayerGeneral>()
   const [ranked, setRanked] = useState<PlayerRanked>()
@@ -16,8 +20,7 @@ const Stats = ({ params }: IdParams) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        player_id: params.id,
-        endpoint: 'stats'
+        data: proxyParams
       },
     )})
     .then(res => res.json())

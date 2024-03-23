@@ -2,6 +2,13 @@ export {}
 
 declare global {
   type IdParams = { params: { id: string }}
+  type ProxyCall = {
+    endpoint: string
+    player_id?: string
+    bracket?: string
+    region?: string
+    page?: string
+  }
   type LegendCardProps = { 
     legend: Legend
   }

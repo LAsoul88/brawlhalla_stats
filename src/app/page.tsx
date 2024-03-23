@@ -6,7 +6,7 @@ import Leaderboard from '@/app/(components)/Leaderboard'
 const Home = () => {
   const router = useRouter()
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex flex-col items-center">
       <section>
         Check out all available Legends and their stats! <br/>
         <button 
