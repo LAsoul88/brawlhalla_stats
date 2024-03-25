@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 const Leaderboard = () => {
   const [proxyParams, setProxyParams] = useState<ProxyCall>({
@@ -53,7 +54,9 @@ const Leaderboard = () => {
                 return (
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={leader.brawlhalla_id}>
                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      {leader.name}
+                      <Link href={`/player/${leader.brawlhalla_id}`}>
+                        {leader.name}
+                      </Link>
                     </th>
                     <td className="px-6 py-4">
                       {leader.region}  
