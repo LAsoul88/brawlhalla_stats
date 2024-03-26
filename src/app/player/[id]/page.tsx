@@ -19,10 +19,8 @@ const Stats = ({ params }: IdParams) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        data: proxyParams
-      },
-    )})
+      body: JSON.stringify(proxyParams),
+    })
     .then(res => res.json())
     .then(data => {
       setPlayer(data['player'])
