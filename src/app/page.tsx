@@ -7,7 +7,7 @@ const Home = () => {
   const router = useRouter()
   return (
     <main className="flex flex-col items-center">
-      <section>
+      <section className='p-8'>
         Check out all available Legends and their stats! <br/>
         <button 
           onClick={() => router.push('/legends')}
@@ -16,7 +16,7 @@ const Home = () => {
           Legends
         </button>
       </section>
-      <section>
+      <section className='p-8'>
         <Leaderboard />
       </section>
     </main>
