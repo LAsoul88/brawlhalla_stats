@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation'
 
 import Leaderboard from '@/app/(components)/Leaderboard'
+import Button from '@/app/(components)/Button'
 
 const Home = () => {
   const router = useRouter()
@@ -9,12 +10,12 @@ const Home = () => {
     <main className="flex flex-col items-center">
       <section className='p-8'>
         Check out all available Legends and their stats! <br/>
-        <button 
+        <Button 
           onClick={() => router.push('/legends')}
-          className='border rounded p-2'
+          variant='primary'
         >
           Legends
-        </button>
+        </Button>
       </section>
       <section className='p-8'>
         <Leaderboard />
