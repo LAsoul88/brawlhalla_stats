@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 export {}
 
 declare global {
@@ -16,6 +18,11 @@ declare global {
     player?: Player
     ranked?: PlayerRanked
     general?: PlayerGeneral
+  }
+  type ButtonProps = {
+    children: ReactNode
+    variant: string
+    onClick: () => void
   }
   type Legend = {
     legend_id: number,
@@ -105,7 +112,7 @@ declare global {
       personal_xp: number
     }
   }
-  interface Leader {
+  type Leader = {
     rank: string
     name: string
     brawlhalla_id: number
